@@ -3,6 +3,7 @@ package com.project.uploadmanager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -10,7 +11,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -23,14 +26,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            AlignInRowExample()
+
         }
     }
 
@@ -41,24 +46,44 @@ class MainActivity : AppCompatActivity() {
 
     @Preview
     @Composable
-    fun PreviewGreeting() {
-        AlignInRowExample()
+    fun Preview() {
+        MessageCard("Compose")
     }
 
     /**Understanding Layouts*/
     @Composable
     fun MessageCard(name: String) {
-        Row {
-            Column {
+        Row (
+            modifier = Modifier
+                .width(400.dp)
+                .fillMaxHeight(.7f)
+                .background(Color.Gray),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceAround
+        ) {
+//            Column (
+//                modifier = Modifier
+//                    .fillMaxSize()
+//                    .background(Color.Green),
+//                horizontalAlignment = Alignment.CenterHorizontally,
+//                verticalArrangement = Arrangement.SpaceAround
+//            ) {
                 Text(
                     text = "Hello ",
-                    color = Color.White
+                    color = Color.Black,
+                    fontSize = 25.sp
                 )
                 Text(
                     text = "$name !",
-                    color = Color.White
+                    color = Color.Black,
+                    fontSize = 25.sp
                 )
-            }
+                Text(
+                    text = "Hello",
+                    color = Color.Black,
+                    fontSize = 25.sp
+                )
+//            }
         }
     }
 
