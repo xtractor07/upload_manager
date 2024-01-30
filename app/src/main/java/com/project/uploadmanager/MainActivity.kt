@@ -46,13 +46,16 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontSynthesis
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -81,7 +84,7 @@ class MainActivity : AppCompatActivity() {
 
             ){
                 Card(
-                    shape = RoundedCornerShape(15.dp)
+                    shape = RoundedCornerShape(20.dp)
                 ) {
                     Box(
                         modifier = Modifier
@@ -91,12 +94,32 @@ class MainActivity : AppCompatActivity() {
                         Text(
                             modifier = Modifier
                                 .align(Alignment.Center),
-                            text = "Jetpack Compose",
+                            text = buildAnnotatedString {
+                                withStyle(
+                                    style = SpanStyle(
+                                        color = Color.Green,
+                                        fontSize = 35.sp,
+                                        fontFamily = fontFamily
+                                    )
+                                ) {
+                                    append("J")
+                                }
+                                append("etpack ")
+                                withStyle(
+                                    style = SpanStyle(
+                                        color = Color.Green,
+                                        fontSize = 35.sp,
+                                        fontFamily = fontFamily
+                                    )
+                                ) {
+                                    append("C")
+                                }
+                                append("ompose")
+                            },
                             color = Color.White,
                             fontSize = 30.sp,
                             textAlign = TextAlign.Center,
                             fontFamily = fontFamily,
-                            fontStyle = FontStyle.Italic
                         )
                     }
                 }
