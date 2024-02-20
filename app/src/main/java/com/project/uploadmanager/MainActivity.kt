@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
     @Preview
     @Composable
     fun PreviewGreeting() {
-
+        AlignInRowExample()
     }
 
     @Composable
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
             modifier = modifier
                 .background(Color.Red)
                 .clickable {
-                    updatedColor (
+                    updatedColor(
                         Color(
                             Random.nextFloat(),
                             Random.nextFloat(),
